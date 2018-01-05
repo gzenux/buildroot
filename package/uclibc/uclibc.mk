@@ -180,6 +180,10 @@ define UCLIBC_SH_TYPE_CONFIG
 	$(SED) '/CONFIG_SH[234A]*/d' $(@D)/.config
 	$(call KCONFIG_ENABLE_OPT,$(UCLIBC_SH_TYPE),$(@D)/.config)
 endef
+
+ifneq ($(BR2_SH_CPU_SUBTYPE_ST40_300),)
+UCLIBC_EXTRA_CFLAGS += -Wa,-tas
+endif
 endif # sh
 
 #

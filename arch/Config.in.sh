@@ -30,3 +30,17 @@ config BR2_ENDIAN
 
 config BR2_READELF_ARCH_NAME
 	default "Renesas / SuperH SH"
+
+# ST40 Processor Support
+
+config BR2_SH_CPU_SUBTYPE_ST40
+	bool
+
+config BR2_SH_CPU_SUBTYPE_ST40_300
+	bool
+	select BR2_SH_CPU_SUBTYPE_ST40
+
+config BR2_SH_CPU_STX7105
+	bool "Support STx7105/7106 processors"
+	depends on BR2_sh4
+	select BR2_SH_CPU_SUBTYPE_ST40_300
